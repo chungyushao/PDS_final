@@ -1,2 +1,4 @@
+#CSV file
+##############
 *.csv
 ref/*.csv
