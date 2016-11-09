@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 """
 
-Reference: Zhongxiang Dai
+Modified from Reference
+
+1) Rename columns of yr_data, extending year information
+2) Extend functions to crawl past data
+3) Fix bugs where page counts are less than list s
+
+Reference: Github repository of Zhongxiang Dai
 
 """
 
