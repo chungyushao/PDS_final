@@ -40,6 +40,9 @@ def get_data(url):
     rows = get_all_rows(url)
     all_player = get_all_player(rows)
     all_player = pd.DataFrame(all_player) # Convert that stats to Pandas DataFrame
+    # Empty results
+    if (all_player.shape[0] == 0):
+        return all_player
     # Drop the index rows inside the table
     all_player = all_player.drop([0], axis=1)
     ind = all_player.loc[:,1] != 'PLAYER'
@@ -51,7 +54,9 @@ def get_all_data(url, s_str):
     all_data = []
     for s in s_str:
         url1 = url + s
-        all_data.append(get_data(url1))
+        cur_data = get_data(url1)
+        if cur_data.shape[0] != 0:
+            all_data.append(cur_data)
     all_data = pd.concat(all_data)
     all_data.index = np.arange(all_data.shape[0])
     # Drop the index rows inside the table
@@ -74,8 +79,7 @@ def get_regular_season(start_yr=2016):
         url_pts += "year/" + str(start_yr) + "/"
 
     # Get url increment rules
-    # s = np.arange(41, 300, 40)
-    s = [41]
+    s = np.arange(41, 300, 40)
     s_str = ['']
     for i in s:
         s_str.append('count/' + str(i))
