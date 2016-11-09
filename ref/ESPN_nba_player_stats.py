@@ -79,7 +79,7 @@ def get_regular_season(start_yr=2016):
         url_pts += "year/" + str(start_yr) + "/"
 
     # Get url increment rules
-    s = np.arange(41, 300, 40)
+    # s = np.arange(41, 300, 40)
     s_str = ['']
     for i in s:
         s_str.append('count/' + str(i))
