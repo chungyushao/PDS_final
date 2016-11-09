@@ -36,7 +36,7 @@ def get_all_rows(url):
 
 # Get all stats on a page
 def get_data(url):
-    print url
+    # print url
     rows = get_all_rows(url)
     all_player = get_all_player(rows)
     all_player = pd.DataFrame(all_player) # Convert that stats to Pandas DataFrame
