@@ -75,7 +75,6 @@ def scrape_draft(save_file, cur_url, past_url, start_yr=2002, end_yr=2018):
         # RK columns may be empty string
         cur_df.drop('RK', axis=1, inplace=True)
         cur_df['RK'] = list(range(1, len(cur_df) + 1))
-        cur_df['Year'] = y
         frames.append(cur_df)
     
     df = pd.concat(frames)
