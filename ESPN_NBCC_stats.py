@@ -75,15 +75,15 @@ def scrape_draft(save_file, cur_url, past_url, start_yr=2002, end_yr=2018):
         # RK columns may be empty string
         cur_df.drop('RK', axis=1, inplace=True)
         cur_df['RK'] = list(range(1, len(cur_df) + 1))
-        cur_df['YEAR'] = y
+        cur_df['Year'] = y
         frames.append(cur_df)
     
     df = pd.concat(frames)
     df.to_csv(save_file)
     return df
 
-# start_yr stands for {start_yr - 1}-{start_yr} Regular Season
-start_yr=2017
+# start_yr stands for {start_yr}-{start_yr + 1} Regular Season
+start_yr=2016
 end_yr=2018 # exclusive
 file_format = "{category}_{start_yr}_to_{end_yr}.csv"
 categories = ['scoring', 'rebounds', 'assits', 'steals', 'blocks']
